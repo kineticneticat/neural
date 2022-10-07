@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mathjs": "^11.2.1",
+    "require": "^2.4.20"
+  }
+}
