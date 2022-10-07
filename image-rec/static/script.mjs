@@ -1,6 +1,9 @@
 import { labels } from "./labels.mjs";
 import { std } from './training_data_sample.mjs'
-import { data } from './training-data-1.mjs'
+import { td1 } from './td1.mjs'
+import { td2 } from './td2.mjs'
+import { td3 } from './td3.mjs'
+import { td4 } from './td4.mjs'
 
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
@@ -30,6 +33,7 @@ dataCanvas.height = 28
 let links = []
 let out = []
 let split = []
+
 
 Math.TAU = Math.PI*2
 
@@ -247,6 +251,7 @@ function Calculate() {
 }
 /////////////////
 function Draw(label) {
+	ctxv.clearRect(0, 0, canvasv.weight, canvasv.height)
 	for (let i = 0; i < inputNodes.length; i++) {
 		inputNodes[i].draw()
 	}
@@ -272,6 +277,7 @@ function Draw(label) {
 		}
 		
 	}
+	
 }
 /////////////////////
 function Cost(output, target) {
@@ -362,6 +368,9 @@ let outy = []
 
 
 window.onload = () => {
+	// debugger
+	let data = td1.concat(td2.concat(td3.concat(td4)))
+	console.log(data.length)
 	for (let i=0; i<data.length; i+=10) {
 		split.push(data.slice(i, i+10))
 	}
@@ -436,6 +445,7 @@ function go() {
 	// 	Epoch(e, split[e])
 	// 	console.log(`Epoch ${e} Done`)
 	// }
+	console.log(split)
 	Epoch(0, split[0])
 	
 }
